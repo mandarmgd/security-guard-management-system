@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Security Guard Login</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <script defer src="script2.js"></script>
+  </head>
+  <body>
+    <div class="login-container">
+      <header class="login-header">Log in as Guard</header>
+      <div class="login-box">
+        <form class="login-form" action="/api/auth/loginGuard" method="POST">
+          <label for="name">Username:</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            required
+          /><br />
+          <label for="email">E-mail ID:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your e-mail"
+            required
+          /><br />
+          <label for="PIN">Password:</label>
+          <input
+            id="PIN"
+            type="password"
+            pattern="[a-zA-Z0-9]+"
+            placeholder="Enter your password"
+            required
+          /><br />
+          <div id="forgot-password-input">
+            <label for="unique-sentence">Unique Sentence:</label>
+            <input
+              type="text"
+              id="unique-sentence"
+              placeholder="Enter your unique sentence"
+            />
+          </div>
+          <button class="submit-btn" type="submit">Submit</button>
+        </form>
+        <div class="forgot-password">
+          <p><a href="#" onclick="showForgotPassword()">Forgot Password?</a></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

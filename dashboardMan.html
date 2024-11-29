@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Manager Dashboard</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+  </head>
+
+  <body>
+    <div class="dashboard-header">
+      <ul class="dashboard-menu">
+        <li><a href="#attendance" id="attendanceButton">Attendance</a></li>
+        <li>
+          <a href="#communications" id="communicationsButton">Communications</a>
+        </li>
+        <li><a href="#tasks" id="tasksButton">Tasks</a></li>
+        <li>
+          <a href="#manageGuards" id="manageGuardsButton">Manage Guards</a>
+        </li>
+        <li><a href="#evaluate" id="evaluateButton">Evaluate</a></li>
+      </ul>
+      <div class="info">
+        <span id="manager-name"
+          >Manager Name: <span id="managerUsername"></span
+        ></span>
+        <a href="#" id="logoutButton" class="log-out">Log Out</a>
+      </div>
+    </div>
+
+    <div id="map" class="map-container"></div>
+
+    <div id="attendancePopup" class="popup">
+      <button class="close-btn">&times;</button>
+      <h2>Attendance</h2>
+      <p>View guards' attendance and send requests.</p>
+      <button class="send-request">Send Attendance Request</button>
+    </div>
+
+    <div id="communicationsPopup" class="popup">
+      <button class="close-btn">&times;</button>
+      <h2>Communications</h2>
+      <p>Chat with guards and other managers.</p>
+    </div>
+
+    <div id="tasksPopup" class="popup">
+      <button class="close-btn">&times;</button>
+      <h2>Task Management</h2>
+      <form>
+        <label for="taskName">Task Name:</label>
+        <input type="text" id="taskName" name="taskName" required />
+
+        <label for="taskDescription">Description:</label>
+        <textarea
+          id="taskDescription"
+          name="taskDescription"
+          required
+        ></textarea>
+
+        <label for="assignTo">Assign To:</label>
+        <select id="assignTo" name="assignTo">
+          <option value="guard1">Guard 1</option>
+          <option value="guard2">Guard 2</option>
+        </select>
+
+        <button type="submit">Assign Task</button>
+      </form>
+    </div>
+
+    <div id="manageGuardsPopup" class="popup">
+      <button class="close-btn">&times;</button>
+      <h2>Manage Guards</h2>
+      <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <label for="identifier">Identifier Sentence:</label>
+        <input type="text" id="identifier" name="identifier" required />
+
+        <button type="submit">Add Guard</button>
+      </form>
+    </div>
+
+    <div id="evaluatePopup" class="popup">
+      <button class="close-btn">&times;</button>
+      <h2>Evaluate Guards</h2>
+      <p>Evaluate guards based on performance metrics.</p>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const managerUsername = localStorage.getItem("managerUsername");
+        if (managerUsername) {
+          document.getElementById("managerUsername").textContent =
+            managerUsername;
+        }
+      });
+    </script>
+  </body>
+</html>

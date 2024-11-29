@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Dashboard</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+  </head>
+
+  <body>
+    <div class="dashboard-header">
+      <ul class="dashboard-menu">
+        <li><a href="#attendance" id="attendanceButton">Attendance</a></li>
+        <li>
+          <a href="#communications" id="communicationsButton">Communications</a>
+        </li>
+        <li><a href="#tasks" id="tasksButton">Tasks</a></li>
+      </ul>
+      <div class="info">
+        <span>Guard Name: <span id="guardUsername"></span></span>
+        <a href="#" id="logoutButton" class="log-out">Log Out</a>
+      </div>
+    </div>
+
+    <div id="map" class="map-container"></div>
+
+    <div id="attendancePopup" class="popup">
+      <button class="close-btn">&times;</button>
+      <h2>Attendance Requests</h2>
+      <p>Mark your attendance for today's shift.</p>
+      <button class="mark-attendance">Mark Present</button>
+    </div>
+
+    <div id="communicationsPopup" class="popup">
+      <button class="close-btn">&times;</button>
+      <h2>Communications</h2>
+      <p>Chat with guards and managers.</p>
+    </div>
+
+    <div id="tasksPopup" class="popup">
+      <button class="close-btn">&times;</button>
+      <h2>Tasks Assigned</h2>
+      <p>Tasks assigned by your manager will appear here.</p>
+      <button class="complete-task">Mark Task as Completed</button>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const guardUsername = localStorage.getItem("guardUsername");
+        if (guardUsername) {
+          document.getElementById("guardUsername").textContent = guardUsername;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Security Manager Sign Up</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <script defer src="signup.js"></script>
+  </head>
+  <body>
+    <div class="login-container">
+      <header class="login-header">Sign Up</header>
+      <div class="login-box">
+        <form class="login-form" action="/api/auth/signup" method="POST">
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter a unique username"
+            required
+          /><br />
+
+          <label for="email">E-mail ID:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email address"
+            required
+          /><br />
+
+          <label for="password">Password:</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Create a strong password"
+            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
+            title="Password must include at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long."
+            required
+          /><br />
+
+          <label for="company">Company/Institute:</label>
+          <input
+            type="text"
+            id="company"
+            placeholder="Enter your company or institute name"
+            pattern="^(?!Unknown$).+"
+            title="Company/Institute name cannot be 'Unknown'."
+            required
+          /><br />
+          <label for="unique-sentence">Unique Sentence:</label>
+          <input
+            type="text"
+            id="unique-sentence"
+            placeholder="Enter your unique sentence"
+          />
+          <button class="submit-btn" type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

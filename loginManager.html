@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Security Manager Login</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <script defer src="script2.js"></script>
+  </head>
+  <body>
+    <div class="login-container">
+      <header class="login-header">Log in as Manager</header>
+      <div class="login-box">
+        <form class="login-form" action="/api/auth/login" method="POST">
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter your username"
+            required
+          /><br />
+          <label for="password">Password:</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter your password"
+            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
+            title="Password must include at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long."
+            required
+          /><br />
+          <div id="forgot-password-input">
+            <label for="unique-sentence">Unique Sentence:</label>
+            <input
+              type="text"
+              id="unique-sentence"
+              placeholder="Enter your unique sentence"
+            />
+          </div>
+          <button class="submit-btn" type="submit">Submit</button>
+        </form>
+        <div class="forgot-password">
+          <p><a href="#" onclick="showForgotPassword()">Forgot Password?</a></p>
+        </div>
+        <div class="signup-link">
+          <p>
+            Don’t have an account? <a href="signup.html">Create an account</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
