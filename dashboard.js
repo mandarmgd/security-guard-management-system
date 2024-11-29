@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.getElementById("logoutButton").addEventListener("click", () => {
   localStorage.clear(); // Clear localStorage on logout
-  window.location.href = "/main.html"; // Redirect to the login page
+  window.location.href = "/index.html"; // Redirect to the login page
 });
 
 navigator.geolocation.watchPosition((position) => {
